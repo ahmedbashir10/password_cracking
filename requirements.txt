@@ -1,0 +1,2 @@
+## This libraries below are the ones used and neccessary for the project
+bcrypt==4.2.0
