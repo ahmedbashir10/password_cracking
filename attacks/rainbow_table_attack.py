@@ -35,4 +35,3 @@ def run():
 # Om du vill köra funktionen direkt utan huvudmeny
 if __name__ == "__main__":
     run()
-
