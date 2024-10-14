@@ -1,37 +1,37 @@
+# attacks/rainbow_table.py
 import hashlib
+import time
 
-# Funktion för att skapa en rainbow table
-def create_rainbow_table(wordlist):
+def generate_rainbow_table(hash_algo, wordlist_file="wordlist.txt"):
     rainbow_table = {}
-    for word in wordlist:
-        word_hash = hashlib.sha256(word.encode()).hexdigest()
-        rainbow_table[word_hash] = word
-    return rainbow_table
 
-# Funktion för att använda rainbow table för att hitta lösenordet
-def rainbow_table_attack(hash_to_crack, rainbow_table):
-    return rainbow_table.get(hash_to_crack, None)
+    try:
+        with open(wordlist_file, 'r', encoding='utf-8', errors='ignore') as file:
+            for word in file:
+                word = word.strip()
+                
+                if hash_algo == 'sha256':
+                    hash_value = hashlib.sha256(word.encode()).hexdigest()
+                elif hash_algo == 'md5':
+                    hash_value = hashlib.md5(word.encode()).hexdigest()
+                
+                rainbow_table[hash_value] = word
 
-# Funktion för att köra rainbow table attack
-def run():
-    # Exempel på ordlista
-    wordlist = ["password", "123456", "letmein", "abc123"]
+        return rainbow_table
 
-    # Definiera det lösenord vi vill knäcka och skapa dess hash
-    password_to_crack = "abc123"
-    target_hash = hashlib.sha256(password_to_crack.encode()).hexdigest()
+    except FileNotFoundError:
+        print("Wordlist file not found.")
 
-    # Skapa rainbow table
-    rainbow_table = create_rainbow_table(wordlist)
 
-    # Testa rainbow table attack
-    result = rainbow_table_attack(target_hash, rainbow_table)
+def rainbow_table_attack(hash_value, rainbow_table):
+    start_time = time.time()
 
-    if result:
-        print(f"Lösenord funnet via rainbow table: {result}")
+    # Check if the hash is in the rainbow table
+    if hash_value in rainbow_table:
+        print(f"Password found: {rainbow_table[hash_value]}")
+        print(f"Time taken: {time.time() - start_time} seconds")
+        return rainbow_table[hash_value]
     else:
-        print("Ingen matchning i rainbow table.")
-
-# Om du vill köra funktionen direkt utan huvudmeny
-if __name__ == "__main__":
-    run()
+        print("Password not found in the rainbow table.")
+    
+    print(f"Total time taken: {time.time() - start_time} seconds")
