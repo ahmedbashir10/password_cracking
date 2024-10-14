@@ -6,7 +6,7 @@ def dictionary_attack(hash_value, wordlist_file="wordlist.txt"):
     start_time = time.time()
     
     try:
-        with open(wordlist_file, 'r') as file:
+        with open(wordlist_file, 'r',  encoding='utf-8', errors='ignore') as file:
             for word in file:
                 word = word.strip()
                 word_hash = hashlib.sha256(word.encode()).hexdigest()
