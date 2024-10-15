@@ -1,6 +1,6 @@
 # Password Cracking and Protection Project
 
-This project demonstrates various password-cracking techniques and protection mechanisms, including brute force, dictionary attacks, rainbow table attacks, and salted hashing. Additionally, protection mechanisms like rate limiting and password complexity checks are implemented to illustrate how to safeguard against these attacks.
+This project demonstrates various password-cracking techniques and protection mechanisms, including brute force, dictionary attacks, rainbow table attacks, and salted hashing. Additionally, protection mechanisms like password complexity checks are implemented to illustrate how to safeguard against these attacks.
 
 ## Table of Contents
 1. [Problem Statement](#problem-statement)
@@ -47,7 +47,7 @@ References:
 The project is organized into several Python scripts, each focusing on a specific password-cracking method or protection mechanism.
 
 1. **Brute Force Attack** (`brute_force_attack.py`)
-    - Tries all possible password combinations up to a specified length.
+    - Tries all possible password combinations up to a specified length. It covers brute
     - Example: Cracked the password `abc123`.
 
 2. **Dictionary Attack** (`dictionary_attack.py`)
