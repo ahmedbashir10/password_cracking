@@ -22,7 +22,6 @@ This project focuses on demonstrating the following techniques for password crac
 
 In addition to these cracking techniques, the project includes:
 - Password complexity checks to ensure strong password policies.
-- Rate limiting to protect against brute force attempts.
 
 ---
 
@@ -77,7 +76,7 @@ To run the project, follow these steps:
 
 ```bash
 git clone <repository_url>
-cd password_cracking_project
+cd password_cracking
 ```
 
 ### 2. Install Dependencies
