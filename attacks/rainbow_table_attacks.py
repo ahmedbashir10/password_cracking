@@ -2,6 +2,7 @@
 import hashlib
 import time
 
+# Generate a rainbow table based on a wordlist
 def generate_rainbow_table(hash_algo, wordlist_file="wordlist.txt"):
     rainbow_table = {}
 
@@ -14,7 +15,13 @@ def generate_rainbow_table(hash_algo, wordlist_file="wordlist.txt"):
                     hash_value = hashlib.sha256(word.encode()).hexdigest()
                 elif hash_algo == 'md5':
                     hash_value = hashlib.md5(word.encode()).hexdigest()
-                
+                elif hash_algo == 'sha1':
+                    hash_value = hashlib.sha1(word.encode()).hexdigest()
+                elif hash_algo == 'sha224':
+                    hash_value = hashlib.sha224(word.encode()).hexdigest()
+                elif hash_algo == 'sha512':
+                    hash_value = hashlib.sha512(word.encode()).hexdigest()
+
                 rainbow_table[hash_value] = word
 
         return rainbow_table

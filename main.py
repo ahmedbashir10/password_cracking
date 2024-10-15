@@ -1,10 +1,9 @@
 # main.py
 import argparse
-from attacks import rainbow_table_attack
-from attacks.brute_force import *
 from attacks.brute_force_attack import brute_force_hashed_with_salt, brute_force_hashed_no_salt, brute_force_plaintext, optimized_brute_force_hashed
 from attacks.dictionary_attack import dictionary_attack
-from attacks.rainbow_table_attack import rainbow_table_attack, generate_rainbow_table
+from attacks.rainbow_table_attacks import rainbow_table_attack
+from attacks.rainbow_table_attacks import generate_rainbow_table
 from utils.hashing import hash_password, hash_password_with_salt
 from utils.password_complexity_check import check_password_strength
 
@@ -46,59 +45,108 @@ def main():
 
             if choice == "1":
                 print("Hash the password! Choose the hashing algorithm.")
-                print("1. Sha256")
-                print("2. md5")
-                print("3. bcrypt")
-                print("4. Exit")
+                print("1. Sha1")
+                print("2. Sha224")
+                print("3. Sha256")
+                print("4. sha512")
+                print("5. md5")
+                print("6. bcrypt")
+                print("7. Exit")
 
                 choice = input("Enter the number for your choice: ")
 
                 if choice == "1":
+                    print("Sha1 hashing algorithm!")
+                    hash_algo = "sha1" 
+                    password = input("Enter your password: ")
+                    hash_value = hash_password(password, hash_algo)
+                    print(hash_value)
+                elif choice == "2":
+                    print("Sha224 hashing algorithm!")
+                    hash_algo = "sha224" 
+                    password = input("Enter your password: ")
+                    hash_value = hash_password(password, hash_algo)
+                    print(hash_value)
+                elif choice == "3":
                     print("Sha256 hashing algorithm!")
                     hash_algo = "sha256" 
                     password = input("Enter your password: ")
                     hash_value = hash_password(password, hash_algo)
                     print(hash_value)
-                elif choice == "2":
+                elif choice == "4":
+                    print("Sha512 hashing algorithm!")
+                    hash_algo = "sha512" 
+                    password = input("Enter your password: ")
+                    hash_value = hash_password(password, hash_algo)
+                    print(hash_value)
+                elif choice == "5":
                     print("Md5 hashing algorithm!")
                     hash_algo = "md5" 
                     password = input("Enter your password: ")
                     hash_value = hash_password(password, hash_algo)
                     print(hash_value)
-                elif choice == "3":
+                elif choice == "6":
                     print("Bcrypt hashing algorithm!")
                     hash_algo = "bcrypt" 
                     password = input("Enter your password: ")
                     hash_value = hash_password(password, hash_algo)
                     print(hash_value)
+                elif choice == "7":
+                    print("Exit!")
+                    exit()
 
             elif choice == "2":
                 print("Hash the password! Choose the hashing algorithm with salt.")
-                print("1. Sha256")
-                print("2. md5")
-                print("3. bcrypt")
-                print("4. Exit")
+                print("1. Sha1")
+                print("2. Sha224")
+                print("3. Sha256")
+                print("4. Sha512")
+                print("5. md5")
+                print("6. bcrypt")
+                print("7. Exit")
 
                 choice = input("Enter the number for your choice: ")
 
                 if choice == "1":
+                    print("Sha1 hashing algorithm!")
+                    hash_algo = "sha1" 
+                    password = input("Enter your password: ")
+                    hash_value = hash_password_with_salt(password, hash_algo)
+                    print(hash_value[0])
+                elif choice == "2":
+                    print("Sha224 hashing algorithm!")
+                    hash_algo = "sha224"
+                    password = input("Enter your password: ")
+                    hash_value = hash_password_with_salt(password, hash_algo)
+                    print(hash_value[0])
+                elif choice == "3": 
                     print("Sha256 hashing algorithm!")
                     hash_algo = "sha256" 
                     password = input("Enter your password: ")
                     hash_value = hash_password_with_salt(password, hash_algo)
                     print(hash_value[0])
-                elif choice == "2":
+                elif choice == "4":
+                    print("Sha512 hashing algorithm!")
+                    hash_algo = "sha512" 
+                    password = input("Enter your password: ")
+                    hash_value = hash_password_with_salt(password, hash_algo)
+                    print(hash_value[0])
+                elif choice == "5":
                     print("Md5 hashing algorithm!")
                     hash_algo = "md5" 
                     password = input("Enter your password: ")
                     hash_value = hash_password_with_salt(password, hash_algo)
                     print(hash_value[0])
-                elif choice == "3":
+                elif choice == "6":
                     print("Bcrypt hashing algorithm!")
                     hash_algo = "bcrypt" 
                     password = input("Enter your password: ")
                     hash_value = hash_password_with_salt(password, hash_algo)
                     print(hash_value[0])
+                elif choice == "7":
+                    print("Exit!")
+                    exit()
+
             elif choice == "3":
                 print("Without hashed the password!")
                 password = input("Enter your password: ")
@@ -167,7 +215,8 @@ def main():
                 print("Dictionary attack!")
                 print("Started the attack...")
                 target_hash = input("Enter the target password: ")
-                result = dictionary_attack(target_hash)
+                algorithm = input("Enter the hashing algorithm: ")
+                result = dictionary_attack(target_hash, algorithm)
                 print(result)
             elif choice == "3":
                 print("Rainbow attack!")
@@ -180,7 +229,6 @@ def main():
                 print(result)
             elif choice == "4":
                 print("Hash with salt attack!")
-                #hashing_with_salt.run()
         
         elif choice == "3":
             print("Protection mechanisms!")
