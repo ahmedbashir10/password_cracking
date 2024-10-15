@@ -1,53 +1,59 @@
-README: Password Cracking Project
-1. Problem Statement
-This project aims to explore and implement different techniques for password cracking and protection, including brute force attacks, dictionary attacks, rainbow tables, and salted hashing. We also include protection mechanisms like rate limiting and password complexity checks. The goal is to understand how these attacks work and how to protect passwords from such threats.
 
-2. References
-The project uses well-known password cracking methods, including:
+# Password Cracking Project
 
-Brute force attacks to guess all possible password combinations.
-Dictionary attacks using the "rockyou.txt" wordlist.
-Rainbow table attacks to speed up password cracking by using precomputed hash values.
-Hashing techniques like MD5, SHA-1, and SHA-256 were used to compare the performance of different hash algorithms.
-3. Project Documentation
-The project is divided into several parts, each implementing different password cracking and protection techniques. Here's a quick overview:
+## 1. Problem Statement
+This project explores and implements various password cracking and protection techniques. The focus is on understanding and demonstrating:
 
-3.1 
-Brute Force Attack (brute_force_attack.py)
-Description: This script generates all possible combinations of characters up to a certain length and compares them to the hashed password.
-Example: The hash for the password "abc123" was successfully cracked.
+- Brute force attacks
+- Dictionary attacks
+- Rainbow tables
+- Salted hashing
 
-3.2
-Dictionary Attack (dictionary_attack.py)
-Description: The dictionary attack loads a wordlist and compares the hashed versions of the words to the hash you want to crack.
-Example: The script cracked the password "12345678" using the wordlist.
+Additionally, the project includes protection mechanisms like rate limiting and password complexity checks to illustrate how passwords can be safeguarded against such attacks.
 
-3.3
-Rainbow Table Attack (rainbow_table_attack.py)
-Description: This script precomputes hash values for a list of passwords and uses these to quickly find a matching password.
-Example: The password "abc123" was found using the rainbow table.
+## 2. References
+The project implements the following well-known password cracking methods:
 
-3.4
-Hashing with Salt (hashing_with_salt.py)
-Description: This script uses a random salt to hash passwords, which increases security and makes it harder to crack passwords using rainbow tables.
-Example: The password "securepassword" was hashed with a random salt and verified.
+- **Brute Force Attacks**: Attempts all possible password combinations.
+- **Dictionary Attacks**: Uses wordlists such as `rockyou.txt` to guess passwords.
+- **Rainbow Table Attacks**: Leverages precomputed hash values to speed up cracking.
+- **Hashing Techniques**: Includes MD5, SHA-1, and SHA-256 to compare the performance of different hash algorithms.
 
-3.5 
-Password Complexity Check (password_complexity_check.py)
-Description: This checks if a password meets specific security requirements, such as length, uppercase letters, lowercase letters, numbers, and special characters.
-Example: The password "StrongPass1!" was approved as a secure password.
+## 3. Project Structure
+The project consists of multiple scripts, each implementing a specific attack or protection mechanism:
 
-3.6 
-Rate Limiting and CAPTCHA Simulation (rate_limiting_and_captcha.py)
-Description: This limits the number of failed login attempts and blocks further attempts after a set number of failures.
-Example: After five failed attempts, the user was temporarily blocked.
+### 3.1 Brute Force Attack (`brute_force_attack.py`)
+**Description**: Generates all possible combinations of characters up to a certain length and compares them to the hashed password.
+- **Example**: Successfully cracked the hash for the password `abc123`.
 
+### 3.2 Dictionary Attack (`dictionary_attack.py`)
+**Description**: Loads a wordlist and compares the hashed versions of the words to the target hash.
+- **Example**: Cracked the password `12345678` using the wordlist.
 
-4. Running the Project
-You can run the main menu by executing main.py directly from the terminal:
+### 3.3 Rainbow Table Attack (`rainbow_table_attack.py`)
+**Description**: Precomputes hash values for a list of passwords and uses these to quickly find a matching password.
+- **Example**: Found the password `abc123` using the rainbow table.
+
+### 3.4 Hashing with Salt (`hashing_with_salt.py`)
+**Description**: Uses a random salt to hash passwords, enhancing security by making it harder to crack passwords using precomputed tables.
+- **Example**: The password `securepassword` was hashed with a random salt and successfully verified.
+
+### 3.5 Password Complexity Check (`password_complexity_check.py`)
+**Description**: Verifies whether a password meets certain security requirements (length, uppercase, lowercase, numbers, special characters).
+- **Example**: The password `StrongPass1!` passed the security check.
+
+### 3.6 Rate Limiting and CAPTCHA Simulation (`rate_limiting_and_captcha.py`)
+**Description**: Limits failed login attempts and blocks further attempts after a set number of failures.
+- **Example**: After five failed attempts, the user was temporarily blocked.
+
+## 4. Running the Project
+To run the project, execute the `main.py` file from the terminal:
+
+```bash
 ./main.py
+```
 
-You will see a menu where you can choose which attack or protection mechanism to test:
+You will be presented with a menu to select and test different attacks or protection mechanisms:
 
 1. Brute Force Attack
 2. Dictionary Attack
@@ -55,5 +61,5 @@ You will see a menu where you can choose which attack or protection mechanism to
 4. Hashing with Salt
 5. Password Complexity Check
 6. Rate Limiting and CAPTCHA Simulation
-Enter the number for the attack or protection mechanism you want to test, and follow the instructions on the screen.
 
+Follow the instructions on the screen after selecting an option.
