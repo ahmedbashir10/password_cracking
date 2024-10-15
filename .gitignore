@@ -11,3 +11,6 @@ env/
 
 # Ignore wordlist
 wordlist.txt
+
+# Ignore rainbow table 
+rainbow_table.pkl
