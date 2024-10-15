@@ -1,6 +1,5 @@
 # main.py
 import argparse
-from attacks.brute_force import *
 from attacks.brute_force_attack import brute_force_hashed_with_salt, brute_force_hashed_no_salt, brute_force_plaintext, optimized_brute_force_hashed
 from attacks.dictionary_attack import dictionary_attack
 from attacks.rainbow_table_attacks import rainbow_table_attack

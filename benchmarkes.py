@@ -1,12 +1,12 @@
 import matplotlib.pyplot as plt
 from attacks import rainbow_table_attacks
-from attacks.brute_force import *
 from attacks.brute_force_attack import brute_force_hashed_with_salt, brute_force_hashed_no_salt, brute_force_plaintext, optimized_brute_force_hashed
 from attacks.dictionary_attack import dictionary_attack
-from attacks.rainbow_table_attack import rainbow_table_attack
+from attacks.rainbow_table_attacks import rainbow_table_attack
 from attacks.rainbow_table_attacks import generate_rainbow_table
 from utils.hashing import hash_password, hash_password_with_salt
 from utils.password_complexity_check import check_password_strength
+import time
 
 
 
