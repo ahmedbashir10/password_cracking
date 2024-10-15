@@ -35,6 +35,11 @@ The project utilizes and implements various hashing algorithms and password-crac
 - **SHA-512**
 - **bcrypt**
 
+References: 
+- Read more about: 
+    - hashlib [https://docs.python.org/3/library/hashlib.html] 
+    - Geeksforgeeks [https://www.geeksforgeeks.org/understanding-rainbow-table-attack/]
+
 ---
 
 ## Project Structure
