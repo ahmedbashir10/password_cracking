@@ -1,6 +1,6 @@
 # Password Cracking and Protection Project
 
-This project demonstrates various password-cracking techniques and protection mechanisms, including brute force, dictionary attacks, rainbow table attacks, and salted hashing. Additionally, protection mechanisms like password complexity checks are implemented to illustrate how to safeguard against these attacks.
+This project demonstrates various password-cracking techniques and protection mechanisms, including brute force, dictionary attacks, rainbow table attacks, and salted hashing. Additionally, protection mechanisms like password complexity checks are implemented to illustrate how to safeguard against these attacks
 
 ## Table of Contents
 1. [Problem Statement](#problem-statement)
