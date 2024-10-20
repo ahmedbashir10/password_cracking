@@ -185,3 +185,7 @@ You will be prompted to provide a password, maximum length, and hash algorithm, 
 3. **Salting**: For added protection, salting your passwords significantly increases the difficulty of cracking, as demonstrated in the salted hashing feature.
 
 ---
+
+### Contributions:
+- Adam worked on developing brute force attacks and dictionary attacks. He also started implementing these along with the main file. Additionally, he contributed to hashing algorithms such as MD5 and SHA-256. Lastly, he has contributed to the password-checking mechanics and the presentation slides. 
+Ahmed implemented the rainbow table attack and different hashing algorithms, such as bcrypt, SHA-1, and SHA-224. He also worked on benchmarking and, together with Adam, helped with the password-checking mechanics and the presentation slides.
